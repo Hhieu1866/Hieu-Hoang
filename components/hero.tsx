@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { FiGithub } from "react-icons/fi";
 import { SlSocialLinkedin } from "react-icons/sl";
 import { FiFacebook } from "react-icons/fi";
+import Link from "next/link";
 
 export function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -131,18 +132,20 @@ export function Hero() {
           >
             ./view-projects.sh
           </Button> */}
-          <Button
-            variant="outline"
-            size="lg"
-            className={`${
-              isDark
-                ? "border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-black"
-                : "border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
-            } flex items-center px-8 py-3 font-mono`}
-          >
-            Facebook
-            <FiFacebook />
-          </Button>
+          <Link href="https://www.facebook.com/hieuht9">
+            <Button
+              variant="outline"
+              size="lg"
+              className={`${
+                isDark
+                  ? "border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-black"
+                  : "border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
+              } flex items-center px-8 py-3 font-mono`}
+            >
+              Facebook
+              <FiFacebook />
+            </Button>
+          </Link>
           <Button
             variant="outline"
             size="lg"

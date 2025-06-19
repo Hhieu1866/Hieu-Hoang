@@ -1,47 +1,52 @@
-"use client"
+"use client";
 
-import { useState, useEffect, useRef } from "react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Copy, ExternalLink } from "lucide-react"
+import { useState, useEffect, useRef } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Copy, ExternalLink } from "lucide-react";
+import TypewriterText from "./TypewriterText";
 
 export function Snippets() {
-  const [isDark, setIsDark] = useState(true)
-  const [isVisible, setIsVisible] = useState(false)
-  const sectionRef = useRef<HTMLElement>(null)
+  const [isDark, setIsDark] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const handleThemeChange = () => {
-      setIsDark(document.documentElement.classList.contains("dark"))
-    }
+      setIsDark(document.documentElement.classList.contains("dark"));
+    };
 
-    const observer = new MutationObserver(handleThemeChange)
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] })
+    const observer = new MutationObserver(handleThemeChange);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
 
-    return () => observer.disconnect()
-  }, [])
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true)
+          setIsVisible(true);
         }
       },
       { threshold: 0.2 },
-    )
+    );
 
     if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+      observer.observe(sectionRef.current);
     }
 
-    return () => observer.disconnect()
-  }, [])
+    return () => observer.disconnect();
+  }, []);
 
   const snippets = [
     {
       title: "Custom React Hook - useLocalStorage",
-      description: "A reusable hook for managing localStorage with TypeScript support",
+      description:
+        "A reusable hook for managing localStorage with TypeScript support",
       language: "TypeScript",
       code: `const useLocalStorage = <T>(key: string, initialValue: T) => {
   const [storedValue, setStoredValue] = useState<T>(() => {
@@ -69,7 +74,8 @@ export function Snippets() {
     },
     {
       title: "Debounce Function",
-      description: "Utility function to debounce API calls and improve performance",
+      description:
+        "Utility function to debounce API calls and improve performance",
       language: "JavaScript",
       code: `const debounce = (func, wait) => {
   let timeout;
@@ -108,43 +114,41 @@ const debouncedSearch = debounce((query) => {
 }`,
       tags: ["CSS", "Grid", "Responsive"],
     },
-  ]
+  ];
 
   return (
     <section
       ref={sectionRef}
       id="snippets"
-      className="py-20 px-4 transition-colors duration-300 relative"
+      className="relative px-4 py-20 transition-colors duration-300"
       style={{ backgroundColor: isDark ? "#1a1a1a" : "#f8f9fa" }}
     >
       {/* Floating Code Symbols */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div
-          className={`absolute top-10 right-10 ${
+          className={`absolute right-10 top-10 ${
             isDark ? "text-purple-400/10" : "text-purple-600/10"
-          } font-mono text-6xl animate-spin-slow`}
+          } animate-spin-slow font-mono text-6xl`}
         >
           {"</>"}
         </div>
         <div
           className={`absolute bottom-20 left-10 ${
             isDark ? "text-blue-400/10" : "text-blue-600/10"
-          } font-mono text-4xl animate-bounce-slow`}
+          } animate-bounce-slow font-mono text-4xl`}
         >
           {"{}"}
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="relative z-10 mx-auto max-w-6xl">
         <div className="mb-12">
-          <h2
-            className={`text-3xl md:text-4xl font-bold mb-8 ${isDark ? "text-white" : "text-black"} font-mono ${
-              isVisible ? "animate-slide-in-left" : "opacity-0"
-            }`}
-          >
-            <span className={isDark ? "text-green-400" : "text-green-600"}>Snippets</span>
-            <span className={isDark ? "text-green-400" : "text-green-600"}>.</span>
-          </h2>
+          <TypewriterText
+            typedText="Snippets."
+            isDark={isDark}
+            isVisible={isVisible}
+          />
+
           <p
             className={`${isDark ? "text-white/80" : "text-black/80"} font-mono text-lg ${
               isVisible ? "animate-fade-in-up" : "opacity-0"
@@ -160,30 +164,36 @@ const debouncedSearch = debounce((query) => {
             <Card
               key={snippet.title}
               className={`${
-                isDark ? "bg-gray-900 border-gray-700" : "bg-white border-gray-300"
-              } transform transition-all duration-700 hover:scale-[1.02] hover:shadow-2xl group ${
+                isDark
+                  ? "border-gray-700 bg-gray-900"
+                  : "border-gray-300 bg-white"
+              } group transform transition-all duration-700 hover:scale-[1.02] hover:shadow-2xl ${
                 isVisible ? "animate-slide-in-right" : "opacity-0"
               }`}
               style={{ animationDelay: `${0.5 + index * 0.3}s` }}
             >
               <CardHeader>
-                <div className="flex justify-between items-start">
+                <div className="flex items-start justify-between">
                   <div>
                     <CardTitle
                       className={`${
                         isDark ? "text-white" : "text-black"
-                      } font-mono text-xl mb-2 group-hover:text-green-400 transition-colors`}
+                      } mb-2 font-mono text-xl transition-colors group-hover:text-green-400`}
                     >
                       {snippet.title}
                     </CardTitle>
-                    <p className={`${isDark ? "text-white/70" : "text-black/70"} font-mono text-sm`}>
+                    <p
+                      className={`${isDark ? "text-white/70" : "text-black/70"} font-mono text-sm`}
+                    >
                       {snippet.description}
                     </p>
                   </div>
                   <span
                     className={`px-3 py-1 ${
-                      isDark ? "bg-blue-900 text-blue-400" : "bg-blue-100 text-blue-700"
-                    } font-mono text-sm rounded transform transition-all duration-300 group-hover:scale-110`}
+                      isDark
+                        ? "bg-blue-900 text-blue-400"
+                        : "bg-blue-100 text-blue-700"
+                    } transform rounded font-mono text-sm transition-all duration-300 group-hover:scale-110`}
                   >
                     {snippet.language}
                   </span>
@@ -192,26 +202,30 @@ const debouncedSearch = debounce((query) => {
               <CardContent>
                 <div
                   className={`${
-                    isDark ? "bg-black border-gray-700" : "bg-gray-100 border-gray-300"
-                  } p-4 rounded-lg border mb-4 overflow-x-auto group-hover:shadow-inner transition-all duration-300`}
+                    isDark
+                      ? "border-gray-700 bg-black"
+                      : "border-gray-300 bg-gray-100"
+                  } mb-4 overflow-x-auto rounded-lg border p-4 transition-all duration-300 group-hover:shadow-inner`}
                 >
                   <pre
                     className={`${
                       isDark ? "text-green-400" : "text-green-700"
-                    } font-mono text-sm overflow-x-auto group-hover:text-green-300 transition-colors`}
+                    } overflow-x-auto font-mono text-sm transition-colors group-hover:text-green-300`}
                   >
                     <code>{snippet.code}</code>
                   </pre>
                 </div>
 
-                <div className="flex justify-between items-center">
+                <div className="flex items-center justify-between">
                   <div className="flex flex-wrap gap-2">
                     {snippet.tags.map((tag, tagIndex) => (
                       <span
                         key={tag}
                         className={`px-2 py-1 ${
-                          isDark ? "bg-gray-800 text-white/80" : "bg-gray-200 text-black/80"
-                        } font-mono text-xs rounded transform transition-all duration-300 hover:scale-110 hover:-rotate-2`}
+                          isDark
+                            ? "bg-gray-800 text-white/80"
+                            : "bg-gray-200 text-black/80"
+                        } transform rounded font-mono text-xs transition-all duration-300 hover:-rotate-2 hover:scale-110`}
                         style={{ animationDelay: `${tagIndex * 0.1}s` }}
                       >
                         {tag}
@@ -227,9 +241,9 @@ const debouncedSearch = debounce((query) => {
                         isDark
                           ? "border-green-400 text-green-400 hover:bg-green-400 hover:text-black"
                           : "border-green-600 text-green-600 hover:bg-green-600 hover:text-white"
-                      } font-mono transform transition-all duration-300 hover:scale-105`}
+                      } transform font-mono transition-all duration-300 hover:scale-105`}
                     >
-                      <Copy className="h-4 w-4 mr-1" />
+                      <Copy className="mr-1 h-4 w-4" />
                       Copy
                     </Button>
                     <Button
@@ -239,9 +253,9 @@ const debouncedSearch = debounce((query) => {
                         isDark
                           ? "border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-black"
                           : "border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
-                      } font-mono transform transition-all duration-300 hover:scale-105`}
+                      } transform font-mono transition-all duration-300 hover:scale-105`}
                     >
-                      <ExternalLink className="h-4 w-4 mr-1" />
+                      <ExternalLink className="mr-1 h-4 w-4" />
                       View
                     </Button>
                   </div>
@@ -252,5 +266,5 @@ const debouncedSearch = debounce((query) => {
         </div>
       </div>
     </section>
-  )
+  );
 }

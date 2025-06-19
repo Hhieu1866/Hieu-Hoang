@@ -65,15 +65,19 @@
   }
 
   html.dark body {
-    @apply text-white font-mono;
+    @apply font-mono text-white;
     background-color: #1a1a1a;
-    font-family: "SF Mono", "Monaco", "Inconsolata", "Roboto Mono", "Source Code Pro", "Menlo", "Consolas", monospace;
+    font-family:
+      "SF Mono", "Monaco", "Inconsolata", "Roboto Mono", "Source Code Pro",
+      "Menlo", "Consolas", monospace;
   }
 
   html.light body {
-    @apply text-black font-mono;
+    @apply font-mono text-black;
     background-color: #f8f9fa;
-    font-family: "SF Mono", "Monaco", "Inconsolata", "Roboto Mono", "Source Code Pro", "Menlo", "Consolas", monospace;
+    font-family:
+      "SF Mono", "Monaco", "Inconsolata", "Roboto Mono", "Source Code Pro",
+      "Menlo", "Consolas", monospace;
   }
 }
 
@@ -103,15 +107,15 @@
   }
 
   .animate-float {
-    animation: float 6s ease-in-out infinite;
+    animation: float 1.2s ease-in-out infinite;
   }
 
   .animate-float-delay {
-    animation: float 6s ease-in-out infinite 2s;
+    animation: float 1.2s ease-in-out infinite 2s;
   }
 
   .animate-float-delay-2 {
-    animation: float 6s ease-in-out infinite 4s;
+    animation: float 1.2s ease-in-out infinite 4s;
   }
 
   .animate-blink {
@@ -131,7 +135,8 @@
   }
 
   .bg-grid-pattern {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
     background-size: 50px 50px;
   }

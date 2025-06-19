@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import Image from "next/image";
+import TypewriterText from "./TypewriterText";
 
 export function Blog() {
   const [isDark, setIsDark] = useState(true);
@@ -117,18 +118,11 @@ export function Blog() {
 
       <div className="relative z-10 mx-auto max-w-6xl">
         <div className="mb-12">
-          <h2
-            className={`mb-8 text-3xl font-bold md:text-4xl ${isDark ? "text-white" : "text-black"} font-mono ${
-              isVisible ? "animate-slide-in-right" : "opacity-0"
-            }`}
-          >
-            <span className={isDark ? "text-green-400" : "text-green-600"}>
-              Blog
-            </span>
-            <span className={isDark ? "text-green-400" : "text-green-600"}>
-              .
-            </span>
-          </h2>
+          <TypewriterText
+            typedText="Blogs."
+            isDark={isDark}
+            isVisible={isVisible}
+          />
           <p
             className={`${isDark ? "text-white/80" : "text-black/80"} font-mono text-lg ${
               isVisible ? "animate-fade-in-up" : "opacity-0"
