@@ -1,0 +1,166 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  email     String   @unique
+  username  String   @unique
+  password  String
+  role      Role     @default(USER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  sessions Session[]
+  projects Project[]
+  snippets Snippet[]
+  blogPosts BlogPost[]
+  tools    Tool[]
+
+  @@map("users")
+}
+
+model Session {
+  id        String   @id @map("_id")
+  userId    String   @db.ObjectId
+  expiresAt DateTime
+
+  user User @relation(references: [id], fields: [userId], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model Project {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  description String
+  longDescription String?
+  tech        String[]
+  github      String?
+  live        String?
+  status      ProjectStatus @default(DEVELOPMENT)
+  date        String
+  team        String?
+  features    String[]
+  thumbnail   String?
+  featured    Boolean  @default(false)
+  views       Int      @default(0)
+  likes       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  authorId    String   @db.ObjectId
+
+  author User @relation(references: [id], fields: [authorId], onDelete: Cascade)
+
+  @@map("projects")
+}
+
+model Snippet {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  description String
+  language    String
+  category    String
+  code        String
+  tags        String[]
+  likes       Int      @default(0)
+  views       Int      @default(0)
+  featured    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  authorId    String   @db.ObjectId
+
+  author User @relation(references: [id], fields: [authorId], onDelete: Cascade)
+
+  @@map("snippets")
+}
+
+model BlogPost {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  excerpt     String
+  content     String
+  slug        String   @unique
+  category    String
+  tags        String[]
+  thumbnail   String?
+  featured    Boolean  @default(false)
+  published   Boolean  @default(false)
+  views       Int      @default(0)
+  likes       Int      @default(0)
+  readTime    String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  publishedAt DateTime?
+  authorId    String   @db.ObjectId
+
+  author User @relation(references: [id], fields: [authorId], onDelete: Cascade)
+
+  @@map("blog_posts")
+}
+
+model Tool {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  description String
+  longDescription String?
+  category    String
+  features    String[]
+  thumbnail   String?
+  icon        String
+  color       String
+  status      ToolStatus @default(ACTIVE)
+  rating      Float    @default(0)
+  users       String   @default("0")
+  lastUpdated String
+  featured    Boolean  @default(false)
+  views       Int      @default(0)
+  uses        Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  authorId    String   @db.ObjectId
+
+  author User @relation(references: [id], fields: [authorId], onDelete: Cascade)
+
+  @@map("tools")
+}
+
+model Analytics {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  date      DateTime @default(now())
+  pageViews Int      @default(0)
+  visitors  Int      @default(0)
+  projects  Int      @default(0)
+  snippets  Int      @default(0)
+  blogPosts Int      @default(0)
+  tools     Int      @default(0)
+
+  @@map("analytics")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum ProjectStatus {
+  DEVELOPMENT
+  BETA
+  PRODUCTION
+  COMPLETED
+}
+
+enum ToolStatus {
+  ACTIVE
+  BETA
+  MAINTENANCE
+  DEPRECATED
+}
