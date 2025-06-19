@@ -1,10 +1,12 @@
-import { type NextRequest, NextResponse } from "next/server"
-import { prisma } from "@/lib/prisma"
-import { requireAdmin } from "@/lib/auth"
+export const dynamic = "force-dynamic";
+
+import { type NextRequest, NextResponse } from "next/server";
+import { prisma } from "@/lib/prisma";
+import { requireAdmin } from "@/lib/auth";
 
 export async function GET(request: NextRequest) {
   try {
-    await requireAdmin()
+    await requireAdmin();
 
     const blogPosts = await prisma.blogPost.findMany({
       orderBy: { createdAt: "desc" },
@@ -16,19 +18,22 @@ export async function GET(request: NextRequest) {
           },
         },
       },
-    })
+    });
 
-    return NextResponse.json(blogPosts)
+    return NextResponse.json(blogPosts);
   } catch (error) {
-    console.error("Get blog posts error:", error)
-    return NextResponse.json({ error: "Internal server error" }, { status: 500 })
+    console.error("Get blog posts error:", error);
+    return NextResponse.json(
+      { error: "Internal server error" },
+      { status: 500 },
+    );
   }
 }
 
 export async function POST(request: NextRequest) {
   try {
-    const { user } = await requireAdmin()
-    const data = await request.json()
+    const { user } = await requireAdmin();
+    const data = await request.json();
 
     const blogPost = await prisma.blogPost.create({
       data: {
@@ -39,11 +44,14 @@ export async function POST(request: NextRequest) {
           .replace(/\s+/g, "-")
           .replace(/[^\w-]+/g, ""),
       },
-    })
+    });
 
-    return NextResponse.json(blogPost)
+    return NextResponse.json(blogPost);
   } catch (error) {
-    console.error("Create blog post error:", error)
-    return NextResponse.json({ error: "Internal server error" }, { status: 500 })
+    console.error("Create blog post error:", error);
+    return NextResponse.json(
+      { error: "Internal server error" },
+      { status: 500 },
+    );
   }
 }
