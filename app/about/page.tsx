@@ -71,7 +71,7 @@ export default function AboutPage() {
                   </span>
                   ,
                 </p>
-                <p className="text-lg">
+                {/* <p className="text-lg">
                   <span
                     className={isDark ? "text-purple-400" : "text-purple-600"}
                   >
@@ -83,7 +83,7 @@ export default function AboutPage() {
                     "5+ years in web development"
                   </span>
                   ,
-                </p>
+                </p> */}
                 <p className="text-lg">
                   <span
                     className={isDark ? "text-purple-400" : "text-purple-600"}
@@ -205,7 +205,7 @@ export default function AboutPage() {
                           isDark ? "text-yellow-400" : "text-yellow-600"
                         }
                       >
-                        "Transformers Movies"
+                        "Transformers Movies🤖"
                       </span>
                       ,{" "}
                       <span
@@ -213,7 +213,7 @@ export default function AboutPage() {
                           isDark ? "text-yellow-400" : "text-yellow-600"
                         }
                       >
-                        "Sci-Fi Films"
+                        "Harry Potter🧙🏻"
                       </span>
                       ]
                     </div>
@@ -348,12 +348,13 @@ export default function AboutPage() {
                   <h3
                     className={`text-xl font-bold ${isDark ? "text-green-400" : "text-green-600"} mb-3`}
                   >
-                    2020 - The Beginning
+                    2021 & 2022 - A New Beginning
                   </h3>
                   <p>
-                    Started my coding journey with HTML, CSS, and JavaScript.
-                    Built my first website and fell in love with web
-                    development.
+                    Started studying IT at Dai Nam University and began
+                    exploring web development. I learned the basics of HTML,
+                    CSS, and JavaScript, and gradually became more interested in
+                    how websites are built and designed.
                   </p>
                 </div>
 
@@ -363,12 +364,13 @@ export default function AboutPage() {
                   <h3
                     className={`text-xl font-bold ${isDark ? "text-green-400" : "text-green-600"} mb-3`}
                   >
-                    2021 - React Era
+                    2023 & 2024 Building Foundations and Leveling Up
                   </h3>
                   <p>
-                    Discovered React.js and modern JavaScript frameworks.
-                    Started building more complex applications and learned about
-                    component-based architecture.
+                    Learned some frameworks like React... with support and
+                    guidance from someone more experienced, I also explored
+                    backend development using Node.js and databases, and learned
+                    how to build full-stack applications.
                   </p>
                 </div>
 
@@ -378,16 +380,16 @@ export default function AboutPage() {
                   <h3
                     className={`text-xl font-bold ${isDark ? "text-green-400" : "text-green-600"} mb-3`}
                   >
-                    2022 - Full Stack
+                    Present – Still Learning
                   </h3>
                   <p>
-                    Expanded into backend development with Node.js and
-                    databases. Started building full-stack applications and
-                    understanding the complete web development cycle.
+                    Currently focusing on improving problem-solving skills,
+                    learning about software testing, and gaining more real-world
+                    experience through personal projects and internships.
                   </p>
                 </div>
 
-                <div
+                {/* <div
                   className={`rounded-lg border p-6 ${isDark ? "border-gray-700 bg-gray-900" : "border-gray-300 bg-white"}`}
                 >
                   <h3
@@ -400,7 +402,7 @@ export default function AboutPage() {
                     Now specializing in building scalable SaaS applications and
                     beautiful user interfaces.
                   </p>
-                </div>
+                </div> */}
               </div>
             </section>
 
@@ -605,9 +607,8 @@ export default function AboutPage() {
                 <p
                   className={`${isDark ? "text-white/80" : "text-black/80"} mb-4 font-mono leading-relaxed`}
                 >
-                  I'm always open to discussing new opportunities, creative
-                  projects, or just having a chat about technology and
-                  development.
+                  I’m happy to talk about new chances, creative projects, or
+                  technology and development.
                 </p>
                 <div className="space-y-2 font-mono text-sm">
                   <div>
@@ -619,7 +620,7 @@ export default function AboutPage() {
                     <span
                       className={isDark ? "text-yellow-400" : "text-yellow-600"}
                     >
-                      "hello@example.com"
+                      "hieuuhtwork@gmail.com"
                     </span>
                   </div>
                   <div>
@@ -631,10 +632,10 @@ export default function AboutPage() {
                     <span
                       className={isDark ? "text-yellow-400" : "text-yellow-600"}
                     >
-                      "linkedin.com/in/yourname"
+                      "www.linkedin.com/in/hieu-hoang-3101b8378/"
                     </span>
                   </div>
-                  <div>
+                  {/* <div>
                     <span
                       className={isDark ? "text-purple-400" : "text-purple-600"}
                     >
@@ -645,7 +646,7 @@ export default function AboutPage() {
                     >
                       "github.com/yourname"
                     </span>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </section>

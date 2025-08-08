@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import TypewriterText from "./TypewriterText";
+import Link from "next/link";
 
 export function Blog() {
   const [isDark, setIsDark] = useState(true);
@@ -44,14 +45,25 @@ export function Blog() {
   }, []);
 
   const posts = [
+    // {
+    //   title: "Building Scalable React Applications",
+    //   excerpt:
+    //     "Learn the best practices for structuring large React applications with proper state management and component architecture.",
+    //   date: "2024-01-15",
+    //   readTime: "8 min read",
+    //   tags: ["React", "Architecture", "Best Practices"],
+    //   slug: "building-scalable-react-applications",
+    //   thumbnail: "/placeholder.svg?height=200&width=400",
+    //   featured: true,
+    // },
     {
-      title: "Building Scalable React Applications",
+      title: "A Little Story About My Family",
       excerpt:
-        "Learn the best practices for structuring large React applications with proper state management and component architecture.",
-      date: "2024-01-15",
-      readTime: "8 min read",
-      tags: ["React", "Architecture", "Best Practices"],
-      slug: "building-scalable-react-applications",
+        "In this first post, I want to share a bit about my family — where I come from, what shaped me, and why they mean everything to me.",
+      date: "2024-01-10",
+      readTime: "5 min read",
+      tags: ["Personal", "Life", "Family"],
+      slug: "about-my-family",
       thumbnail: "/placeholder.svg?height=200&width=400",
       featured: true,
     },
@@ -66,28 +78,28 @@ export function Blog() {
       thumbnail: "/placeholder.svg?height=200&width=400",
       featured: true,
     },
-    {
-      title: "Mastering CSS Grid and Flexbox",
-      excerpt:
-        "A comprehensive guide to modern CSS layout techniques with practical examples and real-world use cases.",
-      date: "2024-01-05",
-      readTime: "15 min read",
-      tags: ["CSS", "Layout", "Frontend"],
-      slug: "mastering-css-grid-flexbox",
-      thumbnail: "/placeholder.svg?height=200&width=400",
-      featured: false,
-    },
-    {
-      title: "TypeScript Tips for Better Code Quality",
-      excerpt:
-        "Advanced TypeScript techniques to write more maintainable and type-safe code in your projects.",
-      date: "2023-12-28",
-      readTime: "10 min read",
-      tags: ["TypeScript", "Code Quality", "Development"],
-      slug: "typescript-tips-better-code-quality",
-      thumbnail: "/placeholder.svg?height=200&width=400",
-      featured: false,
-    },
+    // {
+    //   title: "Mastering CSS Grid and Flexbox",
+    //   excerpt:
+    //     "A comprehensive guide to modern CSS layout techniques with practical examples and real-world use cases.",
+    //   date: "2024-01-05",
+    //   readTime: "15 min read",
+    //   tags: ["CSS", "Layout", "Frontend"],
+    //   slug: "mastering-css-grid-flexbox",
+    //   thumbnail: "/placeholder.svg?height=200&width=400",
+    //   featured: false,
+    // },
+    // {
+    //   title: "TypeScript Tips for Better Code Quality",
+    //   excerpt:
+    //     "Advanced TypeScript techniques to write more maintainable and type-safe code in your projects.",
+    //   date: "2023-12-28",
+    //   readTime: "10 min read",
+    //   tags: ["TypeScript", "Code Quality", "Development"],
+    //   slug: "typescript-tips-better-code-quality",
+    //   thumbnail: "/placeholder.svg?height=200&width=400",
+    //   featured: false,
+    // },
   ];
 
   return (
@@ -129,7 +141,8 @@ export function Blog() {
             }`}
             style={{ animationDelay: "0.3s" }}
           >
-            // Thoughts on web development, tutorials, and tech insights
+            // Thoughts on web development, tutorials, tech insights, and my
+            life
           </p>
         </div>
 
@@ -236,17 +249,19 @@ export function Blog() {
                   ))}
                 </div>
 
-                <Button
-                  variant="outline"
-                  className={`${
-                    isDark
-                      ? "border-green-400 text-green-400 hover:bg-green-400 hover:text-black"
-                      : "border-green-600 text-green-600 hover:bg-green-600 hover:text-white"
-                  } group/btn w-full transform font-mono transition-all duration-300 hover:scale-105`}
-                >
-                  Read More
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                </Button>
+                <Link href={`/blog/${post.slug}`}>
+                  <Button
+                    variant="outline"
+                    className={`${
+                      isDark
+                        ? "border-green-400 text-green-400 hover:bg-green-400 hover:text-black"
+                        : "border-green-600 text-green-600 hover:bg-green-600 hover:text-white"
+                    } group/btn w-full transform font-mono transition-all duration-300 hover:scale-105`}
+                  >
+                    Read More
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                  </Button>
+                </Link>
               </CardContent>
             </Card>
           ))}

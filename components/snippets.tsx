@@ -141,7 +141,7 @@ const debouncedSearch = debounce((query) => {
         </div>
       </div>
 
-      <div className="relative z-10 mx-auto max-w-6xl">
+      {/* <div className="relative z-10 mx-auto max-w-6xl">
         <div className="mb-12">
           <TypewriterText
             typedText="Snippets."
@@ -264,7 +264,7 @@ const debouncedSearch = debounce((query) => {
             </Card>
           ))}
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }

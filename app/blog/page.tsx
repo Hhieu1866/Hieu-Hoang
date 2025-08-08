@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock, ArrowRight, Eye, Heart } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function BlogPage() {
   const [isDark, setIsDark] = useState(true);
@@ -25,22 +26,22 @@ export default function BlogPage() {
   }, []);
 
   const posts = [
-    {
-      title: "Building Scalable React Applications: A Complete Guide",
-      excerpt:
-        "Learn the best practices for structuring large React applications with proper state management, component architecture, and performance optimization techniques.",
-      content:
-        "In this comprehensive guide, we'll explore the essential patterns and practices for building React applications that can scale from small projects to enterprise-level systems...",
-      date: "2024-01-15",
-      readTime: "12 min read",
-      tags: ["React", "Architecture", "Best Practices", "Performance"],
-      slug: "building-scalable-react-applications",
-      category: "Frontend Development",
-      featured: true,
-      thumbnail: "/placeholder.svg?height=300&width=600",
-      views: 2400,
-      likes: 89,
-    },
+    // {
+    //   title: "Building Scalable React Applications: A Complete Guide",
+    //   excerpt:
+    //     "Learn the best practices for structuring large React applications with proper state management, component architecture, and performance optimization techniques.",
+    //   content:
+    //     "In this comprehensive guide, we'll explore the essential patterns and practices for building React applications that can scale from small projects to enterprise-level systems...",
+    //   date: "2024-01-15",
+    //   readTime: "12 min read",
+    //   tags: ["React", "Architecture", "Best Practices", "Performance"],
+    //   slug: "building-scalable-react-applications",
+    //   category: "Frontend Development",
+    //   featured: true,
+    //   thumbnail: "/placeholder.svg?height=300&width=600",
+    //   views: 2400,
+    //   likes: 89,
+    // },
     {
       title: "The Future of Web Development in 2024",
       excerpt:
@@ -89,38 +90,38 @@ export default function BlogPage() {
       views: 1650,
       likes: 78,
     },
-    {
-      title: "Building a Design System from Scratch",
-      excerpt:
-        "Step-by-step guide to creating a comprehensive design system that scales across teams and products, including component libraries and documentation.",
-      content:
-        "Design systems are crucial for maintaining consistency across large applications. In this guide, we'll build a complete design system from the ground up...",
-      date: "2023-12-20",
-      readTime: "18 min read",
-      tags: ["Design System", "UI/UX", "Components", "Documentation"],
-      slug: "building-design-system-from-scratch",
-      category: "Design & UX",
-      featured: false,
-      thumbnail: "/placeholder.svg?height=300&width=600",
-      views: 2100,
-      likes: 95,
-    },
-    {
-      title: "Optimizing Web Performance: Core Web Vitals Guide",
-      excerpt:
-        "Complete guide to improving your website's performance metrics, focusing on Core Web Vitals, loading optimization, and user experience improvements.",
-      content:
-        "Web performance directly impacts user experience and SEO rankings. Let's dive deep into optimizing Core Web Vitals and overall site performance...",
-      date: "2023-12-15",
-      readTime: "14 min read",
-      tags: ["Performance", "Web Vitals", "Optimization", "SEO"],
-      slug: "optimizing-web-performance-core-web-vitals",
-      category: "Performance",
-      featured: false,
-      thumbnail: "/placeholder.svg?height=300&width=600",
-      views: 1900,
-      likes: 82,
-    },
+    // {
+    //   title: "Building a Design System from Scratch",
+    //   excerpt:
+    //     "Step-by-step guide to creating a comprehensive design system that scales across teams and products, including component libraries and documentation.",
+    //   content:
+    //     "Design systems are crucial for maintaining consistency across large applications. In this guide, we'll build a complete design system from the ground up...",
+    //   date: "2023-12-20",
+    //   readTime: "18 min read",
+    //   tags: ["Design System", "UI/UX", "Components", "Documentation"],
+    //   slug: "building-design-system-from-scratch",
+    //   category: "Design & UX",
+    //   featured: false,
+    //   thumbnail: "/placeholder.svg?height=300&width=600",
+    //   views: 2100,
+    //   likes: 95,
+    // },
+    // {
+    //   title: "Optimizing Web Performance: Core Web Vitals Guide",
+    //   excerpt:
+    //     "Complete guide to improving your website's performance metrics, focusing on Core Web Vitals, loading optimization, and user experience improvements.",
+    //   content:
+    //     "Web performance directly impacts user experience and SEO rankings. Let's dive deep into optimizing Core Web Vitals and overall site performance...",
+    //   date: "2023-12-15",
+    //   readTime: "14 min read",
+    //   tags: ["Performance", "Web Vitals", "Optimization", "SEO"],
+    //   slug: "optimizing-web-performance-core-web-vitals",
+    //   category: "Performance",
+    //   featured: false,
+    //   thumbnail: "/placeholder.svg?height=300&width=600",
+    //   views: 1900,
+    //   likes: 82,
+    // },
   ];
 
   const categories = [
@@ -163,7 +164,8 @@ export default function BlogPage() {
             <p
               className={`${isDark ? "text-white/80" : "text-black/80"} font-mono text-lg`}
             >
-              // Thoughts on web development, tutorials, and tech insights
+              // Thoughts on web development, tutorials, tech insights, and my
+              life
             </p>
           </div>
 
@@ -431,18 +433,20 @@ export default function BlogPage() {
                       ))}
                     </div>
 
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className={`${
-                        isDark
-                          ? "border-green-400 text-green-400 hover:bg-green-400 hover:text-black"
-                          : "border-green-600 text-green-600 hover:bg-green-600 hover:text-white"
-                      } group/btn w-full font-mono`}
-                    >
-                      Read More
-                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                    </Button>
+                    <Link href={`/blog/${post.slug}`}>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className={`${
+                          isDark
+                            ? "border-green-400 text-green-400 hover:bg-green-400 hover:text-black"
+                            : "border-green-600 text-green-600 hover:bg-green-600 hover:text-white"
+                        } group/btn w-full font-mono`}
+                      >
+                        Read More
+                        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                      </Button>
+                    </Link>
                   </CardContent>
                 </Card>
               ))}

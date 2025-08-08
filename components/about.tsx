@@ -113,19 +113,21 @@ export function About() {
             style={{ animationDelay: "0.5s" }}
           >
             <p className="transform text-lg transition-all duration-700 hover:translate-x-2">
-              I have been coding for over 5 years, beginning my journey in 2020.
-              Initially, I learned HTML, CSS, and JavaScript to build websites.
+              I’ve always had a passion for design and user interfaces — things
+              that look good and feel smooth to interact with.
             </p>
 
             <p className="transform text-lg transition-all duration-700 hover:translate-x-2">
-              My first project was a simple website built with HTML, CSS, and
-              JavaScript (~mid-2020).
+              In 2021, I began my journey into frontend development when I
+              started studying at Dai Nam University. That’s when I got more
+              serious about learning how to build modern websites and web apps
+              using tools like React and Next.js.
             </p>
 
             <p className="transform text-lg transition-all duration-700 hover:translate-x-2">
-              As I progressed, I focused heavily on React.js and Next.js. Now, I
-              specialize in building SaaS applications with modern web
-              technologies.
+              Since then, I’ve been constantly learning and improving — not just
+              through school, but also by working on side projects, reading
+              documentation, and keeping up with new trends in web development.
             </p>
           </div>
 
@@ -250,12 +252,12 @@ export function About() {
                   >
                     "MongoDB"
                   </span>
-                  ,{" "}
-                  <span
+                  {/* ,{" "} */}
+                  {/* <span
                     className={isDark ? "text-yellow-400" : "text-yellow-600"}
                   >
                     "PostgreSQL"
-                  </span>
+                  </span> */}
                   ]
                 </div>
               </div>

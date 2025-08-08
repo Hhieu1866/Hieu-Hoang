@@ -44,12 +44,12 @@ export function Project() {
 
   const projects = [
     {
-      title: "E-Commerce SaaS",
+      title: "Eduverse",
       description:
-        "A full-stack e-commerce platform with admin dashboard, payment integration, and inventory management.",
-      tech: ["Next.js", "TypeScript", "Prisma", "Stripe"],
+        "An online learning platform built as my graduation project. It allows users to follow learning roadmaps, track progress, and interact with expert-created content. Includes admin dashboard and role-based access.",
+      tech: ["Next.js", "Tailwind CSS", "MongoDB"],
       github: "#",
-      live: "#",
+      live: "https://eduverso-tau.vercel.app/",
       status: "Production",
     },
     {
@@ -84,7 +84,7 @@ export function Project() {
         <div
           className={`absolute inset-0 ${
             isDark ? "bg-green-400/5" : "bg-green-600/5"
-          } bg-grid-pattern animate-grid-move`}
+          } bg-grid-pattern`}
         />
       </div>
 
@@ -181,6 +181,7 @@ export function Project() {
 
                 <div className="flex gap-2">
                   <Button
+                    asChild
                     variant="outline"
                     size="sm"
                     className={`${
@@ -188,11 +189,20 @@ export function Project() {
                         ? "border-green-400 text-green-400 hover:bg-green-400 hover:text-black"
                         : "border-green-600 text-green-600 hover:bg-green-600 hover:text-white"
                     } transform font-mono transition-all duration-300 hover:scale-105`}
+                    disabled={project.github === "#"}
                   >
-                    <Github className="mr-1 h-4 w-4" />
-                    Code
+                    <a
+                      href={project.github !== "#" ? project.github : undefined}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      tabIndex={project.github === "#" ? -1 : 0}
+                    >
+                      <Github className="mr-1 h-4 w-4" />
+                      Code
+                    </a>
                   </Button>
                   <Button
+                    asChild
                     variant="outline"
                     size="sm"
                     className={`${
@@ -200,9 +210,17 @@ export function Project() {
                         ? "border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-black"
                         : "border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
                     } transform font-mono transition-all duration-300 hover:scale-105`}
+                    disabled={project.live === "#"}
                   >
-                    <ExternalLink className="mr-1 h-4 w-4" />
-                    Live
+                    <a
+                      href={project.live !== "#" ? project.live : undefined}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      tabIndex={project.live === "#" ? -1 : 0}
+                    >
+                      <ExternalLink className="mr-1 h-4 w-4" />
+                      Live
+                    </a>
                   </Button>
                 </div>
               </CardContent>
