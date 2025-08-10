@@ -27,7 +27,7 @@ export function Navigation() {
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
     { href: "/project", label: "Project" },
-    { href: "/snippets", label: "Snippets" },
+    // { href: "/snippets", label: "Snippets" },
     { href: "/blog", label: "Blog" },
     // { href: "/tools", label: "Tools" },
   ];

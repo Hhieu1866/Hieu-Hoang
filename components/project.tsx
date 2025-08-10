@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
 import TypewriterText from "./TypewriterText";
+import { projectList } from "@/lib/projects";
 
 export function Project() {
   const [isDark, setIsDark] = useState(true);
@@ -42,35 +43,7 @@ export function Project() {
     return () => observer.disconnect();
   }, []);
 
-  const projects = [
-    {
-      title: "Eduverse",
-      description:
-        "An online learning platform built as my graduation project. It allows users to follow learning roadmaps, track progress, and interact with expert-created content. Includes admin dashboard and role-based access.",
-      tech: ["Next.js", "Tailwind CSS", "MongoDB"],
-      github: "#",
-      live: "https://eduverso-tau.vercel.app/",
-      status: "Production",
-    },
-    {
-      title: "Task Management App",
-      description:
-        "Real-time collaborative task management with drag-and-drop, team workspaces, and notifications.",
-      tech: ["React", "Node.js", "Socket.io", "MongoDB"],
-      github: "#",
-      live: "#",
-      status: "Beta",
-    },
-    {
-      title: "Weather Dashboard",
-      description:
-        "Beautiful weather app with location-based forecasts, interactive maps, and detailed analytics.",
-      tech: ["Vue.js", "Express", "Weather API", "Chart.js"],
-      github: "#",
-      live: "#",
-      status: "Completed",
-    },
-  ];
+  const projects = projectList;
 
   return (
     <section

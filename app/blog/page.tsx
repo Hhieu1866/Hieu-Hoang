@@ -43,7 +43,7 @@ export default function BlogPage() {
     //   likes: 89,
     // },
     {
-      title: "The Future of Web Development in 2024",
+      title: "The Future of Web Development in 2025",
       excerpt:
         "Exploring upcoming trends in web development including AI integration, WebAssembly, edge computing, and the evolution of JavaScript frameworks.",
       content:

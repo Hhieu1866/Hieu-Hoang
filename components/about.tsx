@@ -244,7 +244,7 @@ export function About() {
                     const
                   </span>{" "}
                   <span className={isDark ? "text-white" : "text-black"}>
-                    databases
+                    database
                   </span>{" "}
                   = [
                   <span

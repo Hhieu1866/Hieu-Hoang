@@ -64,18 +64,18 @@ export function Blog() {
       readTime: "5 min read",
       tags: ["Personal", "Life", "Family"],
       slug: "about-my-family",
-      thumbnail: "/placeholder.svg?height=200&width=400",
+      thumbnail: "images/family.png",
       featured: true,
     },
     {
-      title: "The Future of Web Development in 2024",
+      title: "The Future of Web Development in 2025",
       excerpt:
-        "Exploring upcoming trends in web development including AI integration, WebAssembly, and the evolution of JavaScript frameworks.",
+        "In 2025, AI tools like Claude and Cursor are redefining web development, from productivity gains to the rise of “vibe coding.",
       date: "2024-01-10",
       readTime: "12 min read",
       tags: ["Web Development", "Trends", "JavaScript"],
       slug: "future-of-web-development-2024",
-      thumbnail: "/placeholder.svg?height=200&width=400",
+      thumbnail: "images/future.png",
       featured: true,
     },
     // {
@@ -166,12 +166,12 @@ export function Blog() {
                   alt={post.title}
                   width={400}
                   height={200}
-                  className="h-48 w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="h-80 w-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
                 {/* Featured Badge */}
-                {post.featured && (
+                {/* {post.featured && (
                   <div className="absolute left-4 top-4">
                     <span
                       className={`px-3 py-1 ${
@@ -183,7 +183,7 @@ export function Blog() {
                       Featured
                     </span>
                   </div>
-                )}
+                )} */}
 
                 {/* Read Time Badge */}
                 <div className="absolute right-4 top-4">

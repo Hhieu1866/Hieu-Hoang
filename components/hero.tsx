@@ -146,30 +146,36 @@ export function Hero() {
               <FiFacebook />
             </Button>
           </Link>
-          <Button
-            variant="outline"
-            size="lg"
-            className={`${
-              isDark
-                ? "border-green-400 text-green-400 hover:bg-green-400 hover:text-black"
-                : "border-green-600 text-green-600 hover:bg-green-600 hover:text-white"
-            } flex items-center px-8 py-3 font-mono`}
-          >
-            Linkedin
-            <SlSocialLinkedin className="mb-1" />
-          </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            className={`${
-              isDark
-                ? "border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-black"
-                : "border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white"
-            } px-8 py-3 font-mono`}
-          >
-            Github
-            <FiGithub />
-          </Button>
+
+          <Link href="https://www.linkedin.com/in/hieu-hoang-3101b8378/">
+            <Button
+              variant="outline"
+              size="lg"
+              className={`${
+                isDark
+                  ? "border-green-400 text-green-400 hover:bg-green-400 hover:text-black"
+                  : "border-green-600 text-green-600 hover:bg-green-600 hover:text-white"
+              } flex items-center px-8 py-3 font-mono`}
+            >
+              Linkedin
+              <SlSocialLinkedin className="mb-1" />
+            </Button>
+          </Link>
+
+          <Link href="https://github.com/Hhieu1866">
+            <Button
+              variant="outline"
+              size="lg"
+              className={`${
+                isDark
+                  ? "border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-black"
+                  : "border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white"
+              } px-8 py-3 font-mono`}
+            >
+              Github
+              <FiGithub />
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

@@ -12,7 +12,7 @@ import { notFound } from "next/navigation";
 // Mock data - trong thực tế sẽ lấy từ database
 const posts = [
   {
-    title: "The Future of Web Development in 2024",
+    title: "The Future of Web Development in 2025",
     excerpt:
       "Exploring upcoming trends in web development including AI integration, WebAssembly, edge computing, and the evolution of JavaScript frameworks.",
     content: `
@@ -34,7 +34,7 @@ const posts = [
       <h2>Conclusion</h2>
       <p>The future of web development is bright, with new technologies enabling us to build better, faster, and more accessible applications. Staying current with these trends is crucial for any developer looking to remain competitive in the field.</p>
     `,
-    date: "2024-01-10",
+    date: "2025-01-10",
     readTime: "8 min read",
     tags: ["Web Development", "Trends", "JavaScript", "AI"],
     slug: "future-of-web-development-2024",
@@ -50,34 +50,32 @@ const posts = [
       "In this first post, I want to share a bit about my family — where I come from, what shaped me, and why they mean everything to me.",
     content: `
       <h2>Growing Up</h2>
-      <p>I was born and raised in a small town in Vietnam, where family values are deeply ingrained in our culture. My parents worked hard to provide for our family, and their sacrifices shaped who I am today.</p>
+      <p>I grew up in Hanoi, a vibrant city full of energy and tradition. My family wasn’t wealthy, but we were rich in love and support. My parents worked hard to give me and my sister the best opportunities they could.</p>
       
       <h2>My Parents' Influence</h2>
-      <p>My father taught me the value of hard work and perseverance. He worked long hours as a construction worker, often coming home exhausted but never complaining. My mother, on the other hand, showed me the importance of education and kindness. She would spend hours helping me with my homework, even after a long day at the market.</p>
+      <p>My father, a dedicated driver, taught me the value of responsibility and perseverance. My mother, a skilled tailor, showed me the importance of patience, attention to detail, and taking pride in your work.</p>
       
-      <h2>Learning from Siblings</h2>
-      <p>Growing up with two older sisters taught me patience and understanding. They were my first teachers, showing me how to share, how to resolve conflicts, and how to support each other through difficult times.</p>
+      <h2>Learning from My Sister</h2>
+      <p>My younger sister is currently in her final year of high school, preparing for university. Watching her study hard and pursue her dreams inspires me to keep pushing forward in my own journey.</p>
       
       <h2>Family Traditions</h2>
-      <p>Every Sunday, we would gather around the dinner table to share stories from our week. These moments created strong bonds between us and taught me the importance of communication and connection.</p>
+      <p>Our family finds joy in simple moments—sharing meals, talking about our days, and supporting one another’s goals. These traditions have kept us close and grounded over the years.</p>
       
       <h2>Why Family Matters</h2>
-      <p>My family has been my constant source of support throughout my journey in technology. They may not always understand what I do, but they're always there to encourage me and celebrate my successes.</p>
+      <p>My family has always been my foundation. Even if they don’t fully understand the tech world I work in, they celebrate every milestone and encourage me to keep growing.</p>
       
       <h2>Looking Forward</h2>
-      <p>As I continue my career in web development, I carry with me the lessons learned from my family. Their values of hard work, education, and supporting others guide me in everything I do.</p>
+      <p>As I continue my career in web development, I carry with me the lessons of hard work, patience, and mutual support that my family has instilled in me.</p>
     `,
+
     date: "2024-01-10",
     readTime: "5 min read",
     tags: ["Personal", "Life", "Family"],
     slug: "about-my-family",
     category: "Personal",
     featured: true,
-    thumbnail: "/placeholder.svg?height=300&width=600",
-    images: [
-      "/placeholder.svg?height=400&width=800",
-      "/placeholder.svg?height=400&width=800",
-    ],
+    thumbnail: "/images/family1.jpg",
+    images: ["/images/family.png", "/images/family2.jpg"],
     views: 1200,
     likes: 45,
   },
